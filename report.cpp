@@ -32,6 +32,15 @@ int main() {
   }
 
   // Sort by male ID
+  std::sort(ut.begin(), ut.end(), [](Entry a, Entry b)
+  {
+    return std::get<0>(a) < std::get<0>(b);
+  });
 
   // Print results
+  for(auto p : ut)
+  {
+    printf("%-10d%-10d%-.1lf\n", 
+      std::get<0>(p), std::get<1>(p), std::get<2>(p));
+  }
 }
